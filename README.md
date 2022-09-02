@@ -5,8 +5,8 @@
 ### 1. Perl library
 
 ```
-$) PERL_MM_USE_DEFAULT=1 perl -MCPAN -e 'install +LWP::UserAgent'
-$) PERL_MM_USE_DEFAULT=1 perl -MCPAN -e 'install +Date::Calc::XS'
+PERL_MM_USE_DEFAULT=1 perl -MCPAN -e 'install +LWP::UserAgent'
+PERL_MM_USE_DEFAULT=1 perl -MCPAN -e 'install +Date::Calc::XS'
 PERL_MM_USE_DEFAULT=1 perl -MCPAN -e 'install +LWP::Protocol::https'
 ```
 

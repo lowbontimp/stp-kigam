@@ -337,12 +337,12 @@ sub waiting {
 
 sub initialMsg {
 	print STDERR "
-+++++++++++++++++++++++++++
-|       stp-iris.pl       |
-|(http://service.iris.edu)|
-+++++++++++++++++++++++++++
++++++++++++++++++++++++++++++
+|        stp-kigam.pl       |
+|(https://quake.kigam.re.kr)|
++++++++++++++++++++++++++++++
 
-Version $version (Apr. 2021)
+Version $version (Sep. 2022)
 
 Type help(h) to see usage.
 

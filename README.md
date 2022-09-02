@@ -10,7 +10,14 @@ $) PERL_MM_USE_DEFAULT=1 perl -MCPAN -e 'install +Date::Calc::XS'
 PERL_MM_USE_DEFAULT=1 perl -MCPAN -e 'install +LWP::Protocol::https'
 ```
 
-# Usage
+## Set your token
+```
+mkdir -p ~/.stp-kigam
+echo your_token > ~/.stp-kigam/token
+chmod 600 ~/.stp-kigam/token
+```
+
+## Usage
 See the page of [stp-iris.pl](https://github.com/lowbontimp/stp-iris)
 
 ## Self-controlling rate of connection

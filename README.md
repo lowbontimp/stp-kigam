@@ -10,7 +10,7 @@ PERL_MM_USE_DEFAULT=1 perl -MCPAN -e 'install +Date::Calc::XS'
 PERL_MM_USE_DEFAULT=1 perl -MCPAN -e 'install +LWP::Protocol::https'
 ```
 
-## Set your token
+## Set your Authorization key
 ```
 mkdir -p ~/.stp-kigam
 echo your_token > ~/.stp-kigam/token

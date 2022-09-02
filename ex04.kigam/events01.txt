@@ -1,0 +1,12 @@
+#EventID|Time|Latitude|Longitude|Depth/km|Author|Catalog|Contributor|ContributorID|MagType|Magnitude|MagAuthor|EventLocationName
+us10007vfd|2017-01-25T20:54:37.930|17.7541|-94.5589|160.1|us|us|us|us10007vfd|mb|5|us|9 km E of Hidalgotitlán, Mexico
+us10007v73|2017-01-24T16:17:50.570|-19.1827|169.4405|241.11|us|us|us|us10007v73|mb|5.1|us|43 km NNE of Isangel, Vanuatu
+us10007uph|2017-01-22T04:30:22.960|-6.2464|155.1718|135|us|us|us|us10007uph|mww|7.9|us|35 km WNW of Panguna, Papua New Guinea
+us10007uep|2017-01-20T17:36:08.590|-17.2412|-174.0689|109.92|us|us|us|us10007uep|mb|5.1|us|145 km SSW of Hihifo, Tonga
+us10007swd|2017-01-12T17:04:59.820|41.7468|132.9867|497.86|us|us|us|us10007swd|mww|5.4|us|Sea of Japan
+us10007rxx|2017-01-08T01:04:42.710|-24.0511|-66.8595|187.1|us|us|us|us10007rxx|mww|5.1|guc|57 km WNW of San Antonio de los Cobres, Argentina
+us10007rkj|2017-01-06T06:30:35.500|-22.3176|-67.795|172|us|us|us|us10007rkj|mww|5.8|us|77 km NNE of San Pedro de Atacama, Chile
+us10007pif|2017-01-03T19:27:59.210|-23.2527|179.2307|550.95|us|us|us|us10007pif|mb|5|us|south of the Fiji Islands
+us10007p7m|2017-01-02T13:14:02.830|-23.2513|179.2383|551.62|us|us|us|us10007p7m|mww|6.3|us|south of the Fiji Islands
+us10007p7n|2017-01-02T13:13:48.710|-4.895|-76.3675|106|us|us|us|us10007p7n|mww|5.9|us|34 km ESE of Barranca, Peru
+us10007p6z|2017-01-02T10:15:15.640|-23.2769|179.2614|547.77|us|us|us|us10007p6z|mb|5.3|us|south of the Fiji Islands

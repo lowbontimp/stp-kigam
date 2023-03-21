@@ -33,6 +33,12 @@ chmod 600 ~/.stp-kigam/token
 ## How to use `stp-kigam.pl`
 See the page of [stp-iris.pl](https://github.com/lowbontimp/stp-iris)
 
+## FDSN Web services
+The Big Data Open Platform can be also accessed in a general way 
+after a slight modification of the HTTP's header, 'X-Open-Api-Token', 
+as like a tutorial at [https://data.kigam.re.kr/quake/data/web-services](https://data.kigam.re.kr/quake/data/web-services) 
+(written in Korean, accessed on 21 March 2023).
+
 ## Self-controlling rate of connection
 [Guidelines for IRIS DMC services](http://ds.iris.edu/ds/nodes/dmc/services/usage/)
 are requiring no more than *5 concurrent connections* and no more than *10 connections per second*.

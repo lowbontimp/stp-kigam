@@ -13,17 +13,17 @@ PERL_MM_USE_DEFAULT=1 perl -MCPAN -e 'install +LWP::Protocol::https'
 ## How to make a key (token)
 ### 1. Join the Big Data Open Platform at
 ```
-[https://data.kigam.re.kr/auth/join?lang=en](https://data.kigam.re.kr/auth/join?lang=en)
+https://data.kigam.re.kr/auth/join?lang=en
 ```
 Some of terms for joininig it is written in Korean (21 March 2023).
 
 ### 2. Request an authorization key (token) at
 ```
-[https://data.kigam.re.kr/my-openapi/request/](https://data.kigam.re.kr/my-openapi/request/)
+https://data.kigam.re.kr/my-openapi/request/
 ```
 You might need a static IP address.
 
-## Set your Authorization key
+## Save your authorization key at the home
 ```
 mkdir -p ~/.stp-kigam
 echo your_token > ~/.stp-kigam/token

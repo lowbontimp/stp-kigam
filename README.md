@@ -2,7 +2,7 @@
 `stp-kigam.pl` is a version modified from [stp-iris.pl](https://github.com/lowbontimp/stp-iris) for the Big Data Open Platform of Korea Institute of Geoscience and Mineral Resources.
 
 ## Installation
-### 1. Perl library
+### Perl library
 
 ```
 PERL_MM_USE_DEFAULT=1 perl -MCPAN -e 'install +LWP::UserAgent'
@@ -11,13 +11,13 @@ PERL_MM_USE_DEFAULT=1 perl -MCPAN -e 'install +LWP::Protocol::https'
 ```
 
 ## How to make a key (token)
-### 1. Join the Big Data Open Platform at
+### Join the Big Data Open Platform at
 ```
 https://data.kigam.re.kr/auth/join?lang=en
 ```
 Some of terms for joininig it is written in Korean (21 March 2023).
 
-### 2. Request an authorization key (token) at
+### Request an authorization key (token) at
 ```
 https://data.kigam.re.kr/my-openapi/request/
 ```
@@ -30,7 +30,7 @@ echo your_token > ~/.stp-kigam/token
 chmod 600 ~/.stp-kigam/token
 ```
 
-## Usage
+## How to use `stp-kigam.pl`
 See the page of [stp-iris.pl](https://github.com/lowbontimp/stp-iris)
 
 ## Self-controlling rate of connection

@@ -89,10 +89,15 @@ sub win2_single_evt {
 	my $outputPath ="$tmpdir/$net.$sta.$loc.$comp.$year$month$day$hour$min$sec_int.zip";
     my $sec_i_int = int($sec_i);
     my $sec_f_int = int($sec_f);
-    my $tmpsac = "$net.$sta.$loc.$comp.$year$month$day$hour$min$sec.sac";
+    #my $tmpsac = "$net.$sta.$loc.$comp.$year$month$day$hour$min$sec.sac";
+    my $tmpsac = "$net.$sta.$comp.$year$month$day$hour$min$sec.sac";
 	if ($outputfilename eq "0") {
-            $outputfilename="$year$month$day$hour$min$sec_int.$net.$sta.$loc.$comp.sac";
-    }
+		my $prefix = &prefix($year_i,$month_i,$day_i,$hour_i,$min_i,$sec_i_int) ;
+    #$outputfilename="$year$month$day$hour$min$sec_int.$net.$sta.$loc.$comp.sac";
+    #$outputfilename="$year$month$day$hour$min$sec_int.$net.$sta.$comp.sac";
+    $outputfilename="$prefix.$net.$sta.$comp.sac";
+		
+  }
 	my $t1 = "$year_i-$month_i-${day_i}T$hour_i:$min_i:$sec_i" ;
 	my $t2 = "$year_f-$month_f-${day_f}T$hour_f:$min_f:$sec_f" ;
 
@@ -504,27 +509,27 @@ usage:
 }
 
 sub Add_Delta_YMDHMS_MS {
-    my ($year,$month,$date,$hour,$min,$sec,
-        $Dyear,$Dmonth,$Ddate,$Dhour,$Dmin,$Dsec)=@_;
-    my $output; my @output;
-    my $secint = int($sec); 
+   my ($year,$month,$date,$hour,$min,$sec,
+       $Dyear,$Dmonth,$Ddate,$Dhour,$Dmin,$Dsec)=@_;
+  my $output; my @output;
+  my $secint = int($sec); 
 	my $secdec = $sec-$secint;
-    my $Dsecint = int($Dsec); 
+  my $Dsecint = int($Dsec); 
 	my $Dsecdec = $Dsec-$Dsecint;
 	$Dsecint += $secint;
-    #print "($year,$month,$date,$hour,$min,$secint,$Dyear,$Dmonth,$Ddate,$Dhour,$Dmin,$Dsecint)\n";
-    #@output = &Date::Calc::XS::Add_N_Delta_YMDHMS($year,$month,$date,$hour,$min,$secint,$Dyear,$Dmonth,$Ddate,$Dhour,$Dmin,$Dsecint);
-    @output = &Date::Calc::XS::Add_N_Delta_YMDHMS($year,$month,$date,$hour,$min,0,$Dyear,$Dmonth,$Ddate,$Dhour,$Dmin,$Dsecint);
-    my $subsecond = $secdec+$Dsecdec; my $subsecondINT = int($subsecond); my $subsecondDEC = $subsecond-$subsecondINT;
-    @output = &Date::Calc::XS::Add_N_Delta_YMDHMS(@output,0,0,0,0,0,$subsecondINT);
-    $output[5] += $subsecondDEC;
+ 	#print "($year,$month,$date,$hour,$min,$secint,$Dyear,$Dmonth,$Ddate,$Dhour,$Dmin,$Dsecint)\n";
+ 	#@output = &Date::Calc::XS::Add_N_Delta_YMDHMS($year,$month,$date,$hour,$min,$secint,$Dyear,$Dmonth,$Ddate,$Dhour,$Dmin,$Dsecint);
+ 	@output = &Date::Calc::XS::Add_N_Delta_YMDHMS($year,$month,$date,$hour,$min,0,$Dyear,$Dmonth,$Ddate,$Dhour,$Dmin,$Dsecint);
+ 	my $subsecond = $secdec+$Dsecdec; my $subsecondINT = int($subsecond); my $subsecondDEC = $subsecond-$subsecondINT;
+ 	@output = &Date::Calc::XS::Add_N_Delta_YMDHMS(@output,0,0,0,0,0,$subsecondINT);
+	$output[5] += $subsecondDEC;
 	$output[0] = sprintf("%04d",$output[0]) ; #y
 	$output[1] = sprintf("%02d",$output[1]) ; #m
 	$output[2] = sprintf("%02d",$output[2]) ; #d
 	$output[3] = sprintf("%02d",$output[3]) ; #h
 	$output[4] = sprintf("%02d",$output[4]) ; #m
 	$output[5] = sprintf("%05.2f",$output[5]) ; #s
-    return @output;
+	return @output;
 }
 
 sub span2win_f {
@@ -777,23 +782,26 @@ sub win1_multi {
 
 sub win1_single {
 	my ($net,$sta,$loc,$comp,$win_i,$span,$unit)=@_;
-
-    my ($year_i,$month_i,$day_i,$hour_i,$min_i,$sec_i)=&getWinformat($win_i);
+  my ($year_i,$month_i,$day_i,$hour_i,$min_i,$sec_i)=&getWinformat($win_i);
 	my ($year_f,$month_f,$day_f,$hour_f,$min_f,$sec_f)=&span2win_f($year_i,$month_i,$day_i,$hour_i,$min_i,$sec_i,$span,$unit);
 	my $outputPath ="$tmpdir/$net.$sta.$comp.$year_i$month_i$day_i$hour_i$min_i$sec_i.zip";
-    my $sec_i_int = int($sec_i);
-    my $sec_f_int = int($sec_f);
-    my $tmpsac = "$net.$sta.$loc.$comp.$year_i$month_i$day_i$hour_i$min_i$sec_i_int.sac";
+  my $sec_i_int = int($sec_i);
+  my $sec_f_int = int($sec_f);
+  #my $tmpsac = "$net.$sta.$loc.$comp.$year_i$month_i$day_i$hour_i$min_i$sec_i_int.sac";
+  my $tmpsac = "$net.$sta.$comp.$year_i$month_i$day_i$hour_i$min_i$sec_i_int.sac";
 	if ($outputfilename eq "0") {
-            $outputfilename="$year_i$month_i$day_i$hour_i$min_i$sec_i_int.$net.$sta.$loc.$comp.sac";
-    }
+		#$outputfilename="$year_i$month_i$day_i$hour_i$min_i$sec_i_int.$net.$sta.$loc.$comp.sac";
+		my $prefix = &prefix($year_i,$month_i,$day_i,$hour_i,$min_i,$sec_i_int) ;
+		#$outputfilename="$year_i$month_i$day_i$hour_i$min_i$sec_i_int.$net.$sta.$comp.sac";
+		$outputfilename="$prefix.$net.$sta.$comp.sac";
+  }
 	my $t1 = "$year_i-$month_i-${day_i}T$hour_i:$min_i:$sec_i" ;
 	my $t2 = "$year_f-$month_f-${day_f}T$hour_f:$min_f:$sec_f" ;
 	#my $respname = "RESP.$net.$sta.$loc.$comp" ;
 	my $respname = "$net.$sta.$loc.$comp.xml" ;
 	&getresp($net,$sta,$loc,$comp,$t1,$t2,$outputdir_resp,$respname) ;
 	&getsac($net,$sta,$loc,$comp,$t1,$t2,$outputPath,$tmpdir,$tmpsac) ;
-    &sacMerg("$tmpdir/$tmpsac",$year_i,$month_i,$day_i,$hour_i,$min_i,$sec_i,$net,$sta,$loc,$comp,$outputdir,$outputfilename) ;
+  &sacMerg("$tmpdir/$tmpsac",$year_i,$month_i,$day_i,$hour_i,$min_i,$sec_i,$net,$sta,$loc,$comp,$outputdir,$outputfilename) ;
 	#system(join(" ","rm -f $tmpsac"));
 	system(join(" ","rm -f $tmpdir/$tmpsac $outputPath"));
 	$outputfilename="0";
@@ -838,10 +846,14 @@ sub win2_single {
 	my $outputPath ="$tmpdir/$net.$sta.$comp.$year_i$month_i$day_i$hour_i$min_i$sec_i.zip";
     my $sec_i_int = int($sec_i);
     my $sec_f_int = int($sec_f);
-    my $tmpsac = "$net.$sta.$loc.$comp.$year_i$month_i$day_i$hour_i$min_i$sec_i_int.sac";
+    #my $tmpsac = "$net.$sta.$loc.$comp.$year_i$month_i$day_i$hour_i$min_i$sec_i_int.sac";
+    my $tmpsac = "$net.$sta.$comp.$year_i$month_i$day_i$hour_i$min_i$sec_i_int.sac";
 	if ($outputfilename eq "0") {
-            $outputfilename="$year_i$month_i$day_i$hour_i$min_i$sec_i_int.$net.$sta.$loc.$comp.sac";
-    }
+			my $prefix = &prefix($year_i,$month_i,$day_i,$hour_i,$min_i,$sec_i_int) ;
+      #$outputfilename="$year_i$month_i$day_i$hour_i$min_i$sec_i_int.$net.$sta.$loc.$comp.sac";
+      #$outputfilename="$year_i$month_i$day_i$hour_i$min_i$sec_i_int.$net.$sta.$comp.sac";
+      $outputfilename="$prefix.$net.$sta.$comp.sac";
+  }
 	my $t1 = "$year_i-$month_i-${day_i}T$hour_i:$min_i:$sec_i" ;
 	my $t2 = "$year_f-$month_f-${day_f}T$hour_f:$min_f:$sec_f" ;
 	#my $respname = "RESP.$net.$sta.$loc.$comp" ;
@@ -923,4 +935,10 @@ sub read_token {
 		exit ;
 	}
 	return $token ;
+}
+
+sub prefix {
+	my ($year,$month,$day,$hour,$min,$sec_int)=@_ ;
+	my $output = sprintf("%04d%02d%02d%02d%02d%02d",$year,$month,$day,$hour,$min,$sec_int) ;
+	return $output ;
 }

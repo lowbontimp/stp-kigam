@@ -10,6 +10,8 @@ use IO::Uncompress::Unzip qw(unzip $UnzipError) ;
 use File::Path qw (make_path) ;
 use Time::HiRes qw (gettimeofday tv_interval usleep) ;
 
+$ENV{PERL_LWP_SSL_VERIFY_HOSTNAME} = 0 ;
+
 my $version = "1.00" ;
 
 #my $sac = "/home/hbim/downloads/SAC101.6a/etc/sac-101.6a/build/bin/sac" ;
